@@ -1,0 +1,154 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.741365,
+                    77.11675
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "pharmacy",
+                "hours": "9am - 11pm",
+                "description": "pharmacy in Delhi",
+                "address": "B-7/4, B-7, Sector 17, Rohini, Delhi, 110089",
+                "name": "mediplus cart pharmacy",
+                "phone": " 011 4909 6340",
+                "storeid": "01",
+                "stock": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.608775,
+                    77.292747
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "pharmacy",
+                "hours": "9:30am - 9:30pm",
+                "description": "pharmacy in Delhi",
+                "address": "Shop online-3, p-14, Acharya Niketan, pandas nagar, Mayur Vihar Phase 1, Delhi - 110091 (Near Sager Ratna hotel) District East Delhi, district Ina, district Mayur Vihar, district Mayur Vihar Phase 1, district Phase 1 Acharya Niketan",
+                "name": "AAR-GEE chemicals",
+                "phone": " +91 (995) 368-10-83",
+                "storeid": "02",
+                "stock": [
+                    1,
+                    2,
+                    6,
+                    4
+                ]
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.683181,
+                    77.326968
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "pharmacy",
+                "hours": "9am - 10pm",
+                "description": "pharmacy in Delhi",
+                "address": "F-11, Shop No 6 & 7, Dilshad Colony, Dilshad Garden, Dilshad Colony, Delhi - 110095 District Dilshad Garden, district Ina",
+                "name": "Om Sai pharmacy",
+                "phone": " +91 (995) 884-08-70",
+                "storeid": "03",
+                "stock": [
+                    5,
+                    6
+                ]
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.633503,
+                    77.216928
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "pharmacy",
+                "hours": "24 hours",
+                "description": "pharmacy in Delhi",
+                "address": "Shop No G-8, Marina Arcade, Connaught Place, Delhi - 110001 (Near Outer Circle) District Chelmsford Lane, district Connaught Place, district Rk Ashram Marg",
+                "name": "Apollo Pharmacy",
+                "phone": " +91 (11) 237-118-38",
+                "storeid": "04",
+                "stock": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ]
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.623041,
+                    77.060821
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "pharmacy",
+                "hours": "10am - 10pm",
+                "description": "pharmacy in Delhi",
+                "address": "A-6-A Block, Uttam Nagar, Delhi - 110059 (Near Metro Pillar No. 666) District Uttam Nagar West",
+                "name": "Aaradh Homeo Pharmacy",
+                "phone": " 011 4909 6340",
+                "storeid": "05",
+                "stock": [
+                    1,
+                    2
+                ]
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.715208,
+                    77.156681
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "pharmacy",
+                "hours": "9am - 11pm",
+                "description": "pharmacy in Delhi",
+                "address": "G-13, Vardhman Market, Shalimar Bagh, Delhi - 110088District Shalimar Bagh West, district Shalimar Baugh",
+                "name": "Skyline Pharmacy",
+                "phone": " +91 (870) 029-10-78",
+                "storeid": "06",
+                "stock": [
+                    1,
+                    2,
+                    3,
+                    6
+                ]
+            }
+        }
+    ]
+}
