@@ -1,4 +1,4 @@
-.Footer{
+.Footer {
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
@@ -8,18 +8,21 @@
     align-items: center;
     min-height: 10vh;
 }
-.Footer-list{
+
+.Footer-list {
     list-style-type: none;
 }
-.list2{
+
+.list2 {
     display: flex;
     justify-content: space-around;
     width: 50%;
-
 }
-.list2 a{
+
+.list2 a {
     cursor: pointer;
 }
-.list-head{
+
+.list-head {
     font-weight: 700;
 }

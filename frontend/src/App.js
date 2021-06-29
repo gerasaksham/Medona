@@ -4,12 +4,12 @@ import Header from "./components/Header";
 import "./components/Header.css";
 import Footer from "./components/Footer";
 import "./components/Footer.css";
-import HomeScreen from "./screens/Homescreen";
+import HomeScreen from "./screens/HomeScreen";
 import "./screens/Homescreen.css"
 import "./App.css";
 import About from "./components/aboutus";
 import bg from "./components/bg.jpg"
-//import zIndex from "@material-ui/core/styles/zIndex";
+import zIndex from "@material-ui/core/styles/zIndex";
 //import Map from "./components/Map";
 //import Demo1 from "./components/Demo1";
 
