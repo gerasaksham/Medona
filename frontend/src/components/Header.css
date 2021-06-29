@@ -1,4 +1,4 @@
-.Header{
+.Header {
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
@@ -7,13 +7,13 @@
     background-color: rgb(240, 240, 240);
     align-items: center;
     min-height: 10vh;
-    
 }
-.Header-title{
+
+.Header-title {
     font-size: 25px;
-    
 }
-#Header-login{
+
+#Header-login {
     background-color: rgb(80, 206, 245);
     height: 40px;
     width: 80px;
@@ -23,76 +23,77 @@
     border-radius: 5px;
     box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.1);
 }
-#Header-list button:hover{
+
+#Header-list button:hover {
     transform: scale(5);
 }
-.Header-list{
+
+.Header-list {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
     width: 25%;
 }
-#Header-li{
+
+#Header-li {
     margin-top: 5px;
     font-weight: 600;
     color: black;
+    margin-right: 2px;
 }
-.Header-list a{
+
+.Header-list a {
     cursor: pointer;
 }
-.Header-list a:hover{
-    border-bottom: 1px solid black ;
 
+.Header-list a:hover {
+    border-bottom: 1px solid black;
 }
-.Header-icon{
+
+.Header-icon {
     font-size: 28px;
     display: none;
-
 }
-.Header-log{
+
+.Header-log {
     display: none;
     margin-top: 5px;
     font-weight: 600;
     color: black;
     cursor: pointer;
 }
-@media all and (max-width: 768px){
-    .Header-icon{
+
+@media all and (max-width: 780px) {
+    .Header-icon {
         display: block;
     }
-    .Header-log{
+    .Header-log {
         display: block;
-        
     }
-    #Header-login{
+    #Header-login {
         display: none;
     }
-    .Header-list{
+    .Header-list {
         position: absolute;
         display: block;
         top: 0;
         left: 0;
-        height: 100vh;
-        background-color: rgb(182, 169, 169);
+        height: 200vh;
+        background-color: rgb(223, 217, 217);
         padding: 40px;
-        width: 50%;
+        width: fit-content;
         transform: translateX(-500px);
         font-size: 20px;
-        transition: 0.5s ease-in-out ;
+        transition: 0.5s ease-in-out;
+        z-index: 2;
     }
     .Header-list li {
         border-bottom: 1px solid rgb(53, 50, 50);
     }
     .Header-list li:last-of-type {
         border-bottom: 0px solid rgb(53, 50, 50);
-
     }
-    .Header-list a:hover{
-        border-bottom: 0px solid black ;
-    
+    .Header-list a:hover {
+        border-bottom: 0px solid black;
     }
 }
-
-
-
-

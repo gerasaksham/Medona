@@ -1,15 +1,13 @@
-.App{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.App {
+    text-align: center;
 }
 
-.App-content{
-  flex:1;
+.Foot {
+    position: flex-end;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: medium;
+    background-color: rgb(240, 240, 240);
+    text-align: center;
 }
-.Footer-last{
-  font-size: x-small;
-  background-color: rgb(240, 240, 240);
-  text-align: center;
-}
-

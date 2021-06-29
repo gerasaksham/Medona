@@ -1,0 +1,17 @@
+@media(max-width:991px) {
+    .cardpad {
+        padding-left: 15%;
+    }
+}
+
+@media(max-width:560px) {
+    .cardpad {
+        padding-left: 5%;
+    }
+}
+
+@media(max-width:362px) {
+    .cardpad {
+        padding-left: 0;
+    }
+}

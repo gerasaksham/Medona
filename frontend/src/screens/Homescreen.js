@@ -1,24 +1,30 @@
 import React from 'react'
 import Cards from '../components/Cards'
 import { Row, Col, CardDeck } from 'react-bootstrap'
-import './Homescreen.css'
-
+import Searchbar from '../components/Searchbar'
+//import '../components/Searchbar.css'
+import mask from '../components/mask.jpg'
+import med from '../components/med.jpg'
+import block from '../components/block.jpg'
 const HomeScreen = () => {
-    return (
-        <CardDeck >
-            <Row >
-                <Col sm={12} md={6} lg={4} xl={3}>
-                    <Cards name='Find a Med' body='sample text sample text sample text' />
-                </Col>
-                <Col sm={12} md={6} lg={4} xl={3}>
-                    <Cards name='COVID Essentials' body='Already dead' />
-                </Col>
-                <Col sm={12} md={6} lg={4} xl={3}>
-                    <Cards name='Blockchain' body='Ye to humse banega hi nhi' />
-                </Col>
-            </Row>
+    return ( 
+    <>
+        <Searchbar / >
+            <CardDeck >
+                <Row style = {{ position: 'relative', left: '15%'} } >
+                    <Col sm = { 12 } md = { 9 } lg = { 6 } xl = { 3 } className="cardpad">
+                        <Cards src={med} name = 'Find a Medicine' body = 'Search for any medicine that you need' / >
+                    </Col> 
+                    <Col sm = { 12 } md = { 9 } lg = { 6 } xl = { 3 } className="cardpad">
+                        <Cards src={mask} name = 'COVID Essentials 'body = 'Masks, Sanitizers, PPE Kits, Oxymeters and more...' / >
+                    </Col> 
+                    <Col sm = { 12 } md = { 9 } lg = { 6 } xl = { 3 } className="cardpad">
+                        <Cards src={block} name = 'Blockchain' body = 'Authorised product details (Oxygen Cylinders, remdevsir, etc)' / >
+                    </Col> 
+                </Row>
 
-        </CardDeck >
+            </CardDeck > 
+     </>
     )
 }
 export default HomeScreen

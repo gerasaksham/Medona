@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import './Searchbar.css';
-
-
-
+//import './Searchbar.css';
 
 const Searchbar = () => {
 
@@ -25,36 +22,37 @@ const Searchbar = () => {
   }
 
   return (
-    <div className="search" style={{
-     }}>
-       <div>
-      <h3 style={{ width: 500,position: 'absolute', left: '40%', top: '40%',
-        transform: 'translate(10%, 10%)'}} id="head">FIND  A  MEDICINE!</h3></div>
-      <Autocomplete 
-        style={{ width: 500,position: 'absolute', left: '50%', top: '50%',
-        transform: 'translate(-50%, -50%)'}}
+    <div id="search" >
+      <div style={{marginBottom:'3vh', color:'#00008B', padding:'0 5%'}}>
+        <h3 style={{
+          width:'100%',position: 'relative', display:'inline-block', top: '40%', padding: '30px 0',textAlign:'center'}} id="head">FIND  A  MEDICINE!</h3>
+      </div>
+      <Autocomplete
+        id="srch"
+        style={{
+        display:'inline-block',width: '50%', position: 'relative',left: '50%', top: '50%',transform: 'translate(-50%, -50%)'}}
         freeSolo
         autoComplete
         autoHighlight
         options={myOptions}
         renderInput={(params) => (
-          <TextField {...params} 
+          <TextField {...params}
             onChange={getDataFromAPI}
             variant="outlined"
             label="Search Box"
-          
+
           />
 
         )}
       />
-      
+
     </div>
 
   )
-    
-    
-         
-      }
+
+
+
+}
 
 
 export default Searchbar;

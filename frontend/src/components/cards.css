@@ -1,4 +1,17 @@
-.Card:hover{
-    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0,0.253)!important;
+.Card:hover {
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253)!important;
+}
 
+.card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 20px;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.card-pos {
+    Position: relative;
 }
