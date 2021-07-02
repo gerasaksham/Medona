@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import "./components/Header.css";
 import Footer from "./components/Footer";
 import "./components/Footer.css";
-import HomeScreen from "./screens/Homescreen";
+import HomeScreen from "./screens/HomeScreen";
 import "./screens/Homescreen.css"
 import "./App.css";
 import About from "./components/aboutus";
@@ -25,28 +25,28 @@ class App extends Component {
 
 
     render() {
-        return ( 
-        <div style={{  
-            backgroundImage: "url("+bg+")",
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            zIndex:'-1', overflowX:'hidden'
-          }}>
-            {/*<h4 > Using geolocation JavaScript API in React </h4> }
-            {/*<Map />} { /*<Demo1 />*/ } 
-            <Header/>
-            <HomeScreen/>
-            <About/>
-            <div className='Foot'>
-            <Footer/>
+        return (
+            <div style={{
+                backgroundImage: "url(" + bg + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                zIndex: '-1', overflowX: 'hidden'
+            }}>
+                {/*<h4 > Using geolocation JavaScript API in React </h4> }
+            {/*<Map />} { /*<Demo1 />*/ }
+                <Header />
+                <HomeScreen />
+                <About />
+                <div className='Foot'>
+                    <Footer />
+                </div>
+
             </div>
-            
-        </div>
         );
     }
 }
 
-render( < App / > , document.getElementById("root"));
+render(< App />, document.getElementById("root"));
 
 export default App

@@ -7,14 +7,15 @@ import axios from 'axios';
 const Searchbar = () => {
 
   const [myOptions, setMyOptions] = useState([])
+  const [myData, setMyData] = useState([])
   useEffect(() => {
-    const fetchMedicine = async() =>{
-      const res = await axios.get('/api/medicines')
-      setMyOptions(res.data)
-      console.log(res.data)
+    const fetchMedicine = async () => {
+      const { data } = await axios.get('/api/medicines')
+      setMyData(data)
+
     }
     fetchMedicine()
-  },[])
+  }, [])
   // const getDataFromAPI = () => {
   //   console.log("Options Fetched from API")
 
@@ -28,24 +29,33 @@ const Searchbar = () => {
   //     setMyOptions(myOptions)
   //   })
   // }
+  // for (var i = 0; i < myData.length; i++) {
+  //   myOptions.push(myData[i].name)
+  // }
+
+
 
   return (
     <div id="search" >
-      <div style={{marginBottom:'3vh', color:'#00008B', padding:'0 5%'}}>
+      <div style={{ marginBottom: '3vh', color: '#00008B', padding: '0 5%' }}>
         <h3 style={{
-          width:'100%',position: 'relative', display:'inline-block', top: '40%', padding: '30px 0',textAlign:'center'}} id="head">FIND  A  MEDICINE!</h3>
+          width: '100%', position: 'relative', display: 'inline-block', top: '40%', padding: '30px 0', textAlign: 'center'
+        }} id="head">FIND  A  MEDICINE!</h3>
       </div>
       <Autocomplete
         id="srch"
         style={{
-        display:'inline-block',width: '50%', position: 'relative',left: '50%', top: '50%',transform: 'translate(-50%, -50%)'}}
+          display: 'inline-block', width: '50%', position: 'relative', left: '50%', top: '50%', transform: 'translate(-50%, -50%)'
+        }}
         freeSolo
         autoComplete
         autoHighlight
-        options={myOptions}
+        options={myData}
         renderInput={(params) => (
           <TextField {...params}
-            onChange={myOptions.name}
+            onChange={(event) => {
+              setMyOptions(event.target.value)
+            }}
             variant="outlined"
             label="Search Box"
 
