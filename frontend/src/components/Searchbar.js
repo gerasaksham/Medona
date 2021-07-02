@@ -1,25 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import axios from 'axios';
 //import './Searchbar.css';
 
 const Searchbar = () => {
 
   const [myOptions, setMyOptions] = useState([])
-
-  const getDataFromAPI = () => {
-    console.log("Options Fetched from API")
-
-    fetch('').then((response) => {
-      return response.json()
-    }).then((res) => {
+  useEffect(() => {
+    const fetchMedicine = async() =>{
+      const res = await axios.get('/api/medicines')
+      setMyOptions(res.data)
       console.log(res.data)
-      for (var i = 0; i < res.data.length; i++) {
-        myOptions.push(res.data[i].employee_name)
-      }
-      setMyOptions(myOptions)
-    })
-  }
+    }
+    fetchMedicine()
+  },[])
+  // const getDataFromAPI = () => {
+  //   console.log("Options Fetched from API")
+
+  //   fetch('/api/medicines').then((response) => {
+  //     return response.json()
+  //   }).then((res) => {
+  //     console.log(res.data)
+  //     for (var i = 0; i < res.data.length; i++) {
+  //       myOptions.push(res.data[i].name)
+  //     }
+  //     setMyOptions(myOptions)
+  //   })
+  // }
 
   return (
     <div id="search" >
@@ -37,7 +45,7 @@ const Searchbar = () => {
         options={myOptions}
         renderInput={(params) => (
           <TextField {...params}
-            onChange={getDataFromAPI}
+            onChange={myOptions.name}
             variant="outlined"
             label="Search Box"
 
