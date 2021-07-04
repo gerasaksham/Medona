@@ -4,13 +4,13 @@ import Header from "./components/Header";
 import "./components/Header.css";
 import Footer from "./components/Footer";
 import "./components/Footer.css";
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./screens/Homescreen";
 import "./screens/Homescreen.css"
 import "./App.css";
 import About from "./components/aboutus";
 import bg from "./components/bg.jpg"
 import zIndex from "@material-ui/core/styles/zIndex";
-//import Map from "./components/Map";
+// import GoogleMap from './components/GoogleMap';
 //import Demo1 from "./components/Demo1";
 
 class App extends Component {
@@ -33,14 +33,15 @@ class App extends Component {
                 backgroundRepeat: 'no-repeat',
                 zIndex: '-1', overflowX: 'hidden'
             }}>
-                {/*<h4 > Using geolocation JavaScript API in React </h4> }
-            {/*<Map />} { /*<Demo1 />*/ }
-                <Header />
+                
+            
+               <Header />
                 <HomeScreen />
-                <About />
+                
                 <div className='Foot'>
                     <Footer />
                 </div>
+                
 
             </div>
         );

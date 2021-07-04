@@ -6,6 +6,7 @@ import Searchbar from '../components/Searchbar'
 import mask from '../components/mask.jpg'
 import med from '../components/med.jpg'
 import block from '../components/block.jpg'
+import About from '../components/aboutus'
 const HomeScreen = () => {
     return ( 
     <>
@@ -24,6 +25,7 @@ const HomeScreen = () => {
                 </Row>
 
             </CardDeck > 
+            <About/>
      </>
     )
 }
