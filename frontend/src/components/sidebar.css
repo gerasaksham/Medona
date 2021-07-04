@@ -1,13 +1,4 @@
-.card {
-    left: 0;
-    margin-top: 5%;
-    display: inline-block;
-    width: 25%;
-    border: 4px;
-    border-width: 6px;
-    background-color: darkorchid;
-    position: absolute;
-}
+
 .sidebar{
     position: absolute;
   z-index: 100;

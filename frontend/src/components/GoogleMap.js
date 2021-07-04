@@ -14,7 +14,7 @@ const google = window.google;
 const style = {
   width: '80vw',
   height: '100vh',
-  left :'310px',
+  left: '310px',
 
 }
 
