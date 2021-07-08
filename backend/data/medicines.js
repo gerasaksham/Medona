@@ -54,4 +54,4 @@ const medicines = [
     },
 
 ]
-module.exports = medicines
+export default medicines
