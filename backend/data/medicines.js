@@ -1,6 +1,6 @@
 const medicines = [
     {
-        _id: 1,
+
         name: 'Paracetamol',
         composition: 'Some chemicals',
         brand: 'Generic',
@@ -8,7 +8,7 @@ const medicines = [
         description: 'Used to cure fever'
     },
     {
-        _id: 2,
+
         name: 'ColdTime',
         composition: 'Some more chemicals',
         brand: 'Parle G',
@@ -17,7 +17,7 @@ const medicines = [
 
     },
     {
-        _id: 3,
+
         name: 'Azythromycin',
         composition: 'Fungus and virus',
         brand: 'COVID 19',
@@ -26,7 +26,7 @@ const medicines = [
 
     },
     {
-        _id: 4,
+
         name: 'Ecstacy',
         composition: 'Nashe',
         brand: 'Ooof',
@@ -35,7 +35,7 @@ const medicines = [
 
     },
     {
-        _id: 5,
+
         name: 'loperamide',
         composition: 'xyz',
         brand: ' Imodium',
@@ -44,7 +44,7 @@ const medicines = [
 
     },
     {
-        _id: 6,
+
         name: 'Eno',
         composition: 'Zantac 75',
         brand: 'GlaxoSmithKline',
