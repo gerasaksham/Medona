@@ -1,5 +1,6 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom'
 
 function Header() {
     const [open, setstate] = useState(false);
@@ -8,10 +9,10 @@ function Header() {
             <h1 className="Header-title">MEDONA</h1>
             <ul className="Header-list" style={{ transform: open ? "translateX(0px)" : "" }}>
                 <li id="Header-li">
-                    <a href="#">HomePage</a>
+                    <Link to={'/'}>HomePage</Link>
                 </li>
                 <li id="Header-li">
-                    <a href="#">StoreLocator</a>
+                    <Link to={'/stores'}>StoreLocator</Link>
                 </li>
 
                 <li>

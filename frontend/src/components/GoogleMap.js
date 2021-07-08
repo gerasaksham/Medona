@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper, InfoWindow, Circle } from 'google-maps-react';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import { getDefaultNormalizer, render } from '@testing-library/react';
+import { MDBCard, MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
 import { Form, Button } from 'react-bootstrap';
-import './searchbar.css';
-import * as stores from './stores';
+import './Searchbar.css';
+import axios from 'axios';
 import './sidebar.css';
-
 const google = window.google;
 const style = {
+  width: '80vw',
+  height: '100vh',
+  left: '310px',
 
-  height: '100vh'
 }
-export class MapContainer extends Component {
+
+
+export class MapCont extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // for google map places autocomplete
       address: '',
-
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -29,17 +33,29 @@ export class MapContainer extends Component {
         lat: null,
         lng: null
       },
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
       setZoom: 10,
+      mydata: [],
 
-
-    };
+    }
     this.getLocation = this.getLocation.bind(this);
     this.showPosition = this.showPosition.bind(this);
     this.Locate = this.Locate.bind(this);
   }
+
+  componentDidMount() {
+    this.getData()
+  }
+  async getData() {
+    let resp = await axios.get(`/api/stores`)
+    // console.warn(resp.data);
+    this.setState({ mydata: resp.data.features });
+  }
   getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.showPosition, this.showError);
+      navigator.geolocation.getCurrentPosition(this.showPosition);
     } else {
       alert("Geolocation is not supported by this browser.");
     }
@@ -53,25 +69,6 @@ export class MapContainer extends Component {
       }
     })
   }
-  showError(error) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        alert("User denied the request for Geolocation.");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        alert("Location information is unavailable.");
-        break;
-      case error.TIMEOUT:
-        alert("The request to get user location timed out.");
-        break;
-      case error.UNKNOWN_ERROR:
-        alert("An unknown error occurred.");
-        break;
-      default:
-        alert("An unknown error occurred.");
-    }
-  }
-
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
@@ -115,13 +112,21 @@ export class MapContainer extends Component {
       .catch(error => console.error('Error', error));
   };
 
+
+
+
   render() {
     const point = {
       lat: this.state.mapCenter.lat,
       lng: this.state.mapCenter.lng
     }
+    const coords = { lat: this.state.mapCenter.lat, lng: this.state.mapCenter.lng };
+    // const storess = this.state.mydata.features;
     return (
+
       <div id='googleMaps'>
+        {/* AUTOCOMPLETE */}
+        {console.log(this.state.mydata)}
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
@@ -129,11 +134,10 @@ export class MapContainer extends Component {
         >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div>
-              <h4 className="heading h" > FIND STORE: </h4>
+              <h4 className="heading" > FIND STORE: </h4>
               <Form.Control
                 type='text'
                 name='q'
-
                 {...getInputProps({
                   placeholder: 'Search Places ...',
                   className: 'location-search-input mr-sm-2 ml-sm-5 frm',
@@ -142,6 +146,15 @@ export class MapContainer extends Component {
               <Button type='submit'
                 variant='outline-success'
                 className='p-2' onClick={this.getLocation}>Locate Me</Button>
+
+              {/* <select className='radius' >
+                <option value="1km"  > 1 km </option>
+                <option value="2km" > 2 km </option>
+                <option value="5km" > 5 km </option>
+                <option value="10km" > 10 km </option>
+                <option value="50km" > 50 km </option>
+
+              </select> */}
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
@@ -168,9 +181,9 @@ export class MapContainer extends Component {
           )}
         </PlacesAutocomplete>
 
+
         <Map
           google={this.props.google}
-
           initialCenter={{
             lat: this.state.mapCenter.lat,
             lng: this.state.mapCenter.lng
@@ -179,13 +192,13 @@ export class MapContainer extends Component {
             lat: this.state.mapCenter.lat,
             lng: this.state.mapCenter.lng
           }}
+          // onCenterChanged = { this.handleCenterChanged }
           style={style}
           zoom={this.state.setZoom}
           // bounds = { bounds}
           centerAroundCurrentLocation={true}
-
         >
-          {stores.features.map((stor) =>
+          {this.state.mydata.map((stor) =>
             <Marker
               key={stor.properties.storeid}
               position={{
@@ -206,7 +219,6 @@ export class MapContainer extends Component {
             }}
             onClick={this.onMarkerClick}
             name={'Your current Location'}
-            // animation={google.maps.Animation.DROP}
           />
           <InfoWindow
             marker={this.state.activeMarker}
@@ -217,36 +229,55 @@ export class MapContainer extends Component {
           >
             <div>
               <h3>{this.state.selectedPlace.name}</h3>
-              <p>{this.state.selectedPlace.description}</p>
               {/* <p>{this.state.selectedPlace.description}</p> */}
             </div>
           </InfoWindow>
+
+
+
+          {/* <Circle
+        radius={1200}
+        center={coords}
+        onMouseover={() => console.log('mouseover')}
+        onClick={() => this.setState({
+          setZoom : 15 })
+        }
+        onMouseout={() => console.log('mouseout')}
+        strokeColor='transparent'
+        strokeOpacity={0}
+        strokeWeight={5}
+        fillColor='#FF0000'
+        fillOpacity={0.2}
+      /> */}
         </Map>
-        <section className="sidebar" >
-          <div className="sidebar-inner">
+        <div>
+          <section className="sidebar" >
+            <div className="sidebar-inner">
 
-            <ul>
-              {stores.features.map((s) =>
-                <li className="listitem ">Store : {s.properties.storeid}
-                  <h3>{s.properties.name}</h3>
-                  <p>{s.properties.phone}</p>
-                  {/* {console.log(s.geometry.coordinates)} */}
+              <ul>
+                {this.state.mydata.map(s =>
+                  <li className="listitem ">Store : {s.properties.storeid}
+                    <h3>{s.properties.name}</h3>
+                    <p>{s.properties.phone}</p>
+                    <p>{s.properties.hours}</p>
+                    {/* {console.log(s.geometry.coordinates)} */}
 
-                  < button className='btn btn2 btn-info' onClick={() => this.Locate(s.geometry.coordinates[1], s.geometry.coordinates[0])}> Locate
+                    < button className='btn btn2 btn-info' onClick={() => this.Locate(s.geometry.coordinates[1], s.geometry.coordinates[0])}> Locate
 
-                  </button >
-                </li>
-              )}
-            </ul>
+                    </button >
+                  </li>
+                )}
+              </ul>
 
 
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
       </div>
-    )
+    );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('')
-})(MapContainer)
+  apiKey: ('AIzaSyAhcqvAwBDwBt2_l9GSEfm9SPK1-wscFVs')
+})(MapCont)

@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "medicine locator app",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,18 @@
   },
   "homepage": "https://github.com/Gerasaksham29/Medona#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "axios": "^0.21.1",
-    "dotenv": "^10.0.0"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "google-maps-react": "^2.0.6",
+    "mdb-react-ui-kit": "^1.0.0-beta7",
+    "mongoose": "^5.13.2",
+    "react-bootstrap": "^1.6.1",
+    "react-places-autocomplete": "^7.3.0",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
