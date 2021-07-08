@@ -24,7 +24,6 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
-    "dotenv": "^10.0.0",
     "google-maps-react": "^2.0.6",
     "mdb-react-ui-kit": "^1.0.0-beta7",
     "react-bootstrap": "^1.6.1",
