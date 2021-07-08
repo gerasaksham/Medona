@@ -1,6 +1,12 @@
-const express = require('express')
-const medicines = require('./data/medicines.js')
-const stores = require('./data/stores.json')
+import express from 'express'
+import medicines from './data/medicines.js'
+import stores from './data/stores.json'
+import dotenv from 'dotenv'
+import connectDB from './config/db.js'
+dotenv.config()
+connectDB()
+
+
 const app = express()
 
 app.get('/', (res) => {
