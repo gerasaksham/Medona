@@ -10,63 +10,75 @@ import Footer from "../components/Footer"
 import "../components/Footer.css"
 import SearchBar from '../components/Searchbar'
 import SearchResult from "../components/SearchResult";
-import medicines from '../medicines'
+
+import axios from 'axios'
 
 class HomeScreen extends Component {
     constructor(props) {
         super();
         this.state = {
-        data: medicines,
-        appName: 'React Search Bar',
-        list: undefined,
+            data: [],
+            appName: 'React Search Bar',
+            list: undefined,
         }
     }
-    searchData(e){
+
+    componentDidMount() {
+        this.getData()
+    }
+    async getData() {
+        let { data } = await axios.get(`/api/medicines`)
+        // console.warn(resp.data);
+        this.setState({ data: data });
+    }
+    searchData(e) {
         var queryData = [];
-        if(e.target.value !== '') {
-          this.state.data.forEach(function(person) {
-    
-              if(person.name.toLowerCase().indexOf(e.target.value)!==-1) {
-                if(queryData.length < 10) {
-                  queryData.push(person.name);
+        if (e.target.value !== '') {
+            this.state.data.forEach(function (person) {
+
+                if (person.name.toLowerCase().indexOf(e.target.value) !== -1) {
+                    if (queryData.length < 10) {
+                        queryData.push(person.name);
+                    }
                 }
-              }
-          });
+            });
         }
-        this.setState({list: queryData});
+        this.setState({ list: queryData });
         //console.log(queryData)
-      }
-    render(){return (
-        <>
-            <SearchBar search={this.searchData.bind(this)}/>
-            {(this.state.list) ? <SearchResult data={this.state.list} /> : null  }
-            <CardDeck >
-                <Row style={{ position: 'relative', left: '15%' }} >
-                    <Col sm={12} md={9} lg={6} xl={3} className="cardpad">
-                        <Link to={'/stores'}>
-                            <Cards src={med} name='Find a Medicine' body='Search for any medicine that you need' />
-                        </Link>
-                    </Col>
-                    <Col sm={12} md={9} lg={6} xl={3} className="cardpad">
-                        <Cards src={mask} name='COVID Essentials ' body='Masks, Sanitizers, PPE Kits, Oxymeters and more...' />
-                    </Col>
-                    <Col sm={12} md={9} lg={6} xl={3} className="cardpad">
-                        <Cards src={block} name='Blockchain' body='Authorised product details (Oxygen Cylinders, remdevsir, etc)' />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <About />
-                    </Col>
-                </Row>
+    }
+    render() {
+        return (
+            <>
+                <SearchBar search={this.searchData.bind(this)} />
+                {(this.state.list) ? <SearchResult data={this.state.list} /> : null}
+                <CardDeck >
+                    <Row style={{ position: 'relative', left: '15%' }} >
+                        <Col sm={12} md={9} lg={6} xl={3} className="cardpad">
+                            <Link to={'/stores'}>
+                                <Cards src={med} name='Find a Medicine' body='Search for any medicine that you need' />
+                            </Link>
+                        </Col>
+                        <Col sm={12} md={9} lg={6} xl={3} className="cardpad">
+                            <Cards src={mask} name='COVID Essentials ' body='Masks, Sanitizers, PPE Kits, Oxymeters and more...' />
+                        </Col>
+                        <Col sm={12} md={9} lg={6} xl={3} className="cardpad">
+                            <Cards src={block} name='Blockchain' body='Authorised product details (Oxygen Cylinders, remdevsir, etc)' />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <About />
+                        </Col>
+                    </Row>
 
 
-            </CardDeck >
-            <div className='Foot'>
-                <Footer />
-            </div>
+                </CardDeck >
+                <div className='Foot'>
+                    <Footer />
+                </div>
 
-        </>
-    )}
+            </>
+        )
+    }
 }
 export default HomeScreen
